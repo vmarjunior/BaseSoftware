@@ -19,8 +19,8 @@ namespace BaseAPI.Controllers
             _appSettings = appSettings.Value;
         }
 
-        [HttpPost("authenticate")]
-        public IActionResult Authenticate(AuthenticateRequest model)
+        [HttpPost("Authenticate")]
+        public IActionResult Authenticate([FromBody]AuthenticateRequest model)
         {
             var response = _userRepository.Authenticate(model, _appSettings.Secret);
 
@@ -31,7 +31,7 @@ namespace BaseAPI.Controllers
         }
 
         [Authorize]
-        [HttpGet]
+        [HttpGet("GetAll")]
         public IActionResult GetAll()
         {
             var users = _userRepository.GetAll();
