@@ -1,3 +1,4 @@
+import { AuthGuard } from 'shared/services/util/auth-guard.service';
 import { SharedModule } from 'shared/shared.module';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -11,7 +12,7 @@ import { LoginComponent } from './components/login/login.component';
     SharedModule,
     RouterModule.forChild([
       { path: '', component: LoginComponent },
-      { path: 'home', component: HomeComponent }
+      { path: 'home', component: HomeComponent, canActivate: [AuthGuard] }
     ])
   ],
   declarations: [

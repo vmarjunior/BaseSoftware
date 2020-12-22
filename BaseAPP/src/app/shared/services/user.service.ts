@@ -10,7 +10,6 @@ import { UtilService } from './util/util.service';
 export class UserService {
 
   private URL = {
-    LoginRequest: environment.API + 'Users/Authenticate',
     GetAll: environment.API + 'Users/GetAll'
   };
 
@@ -19,16 +18,6 @@ export class UserService {
     private utilService: UtilService) { }
 
   //Methods
-  LoginRequest(userName, password): Observable<any> {
-
-    let data = {
-      UserName: userName,
-      Password: password
-    };
-
-    return this.http.post<any>(this.URL.LoginRequest, JSON.stringify(data), { headers: this.utilService.jsonHeader });
-  }
-
   GetAll(){
     return this.http.get<any>(this.URL.GetAll);
   }

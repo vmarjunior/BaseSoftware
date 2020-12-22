@@ -36,6 +36,12 @@ namespace DAL.Repositories
             return new AuthenticateResponse(user, token);
         }
 
+        override
+        public User Get(int id)
+        {
+            return _users.SingleOrDefault(x => x.Id == id);
+        }
+
         private string generateJwtToken(User user, string secret)
         {
             // generate token that is valid for 7 days

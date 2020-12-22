@@ -10,6 +10,7 @@ namespace DAL
     public class ApplicationDbContext : DbContext
     {
         public DbSet<Example> Example { get; set; }
+        public DbSet<User> User { get; set; }
 
         public ApplicationDbContext(DbContextOptions options) : base(options)
         { }
