@@ -2,3 +2,15 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "~font-awesome/css/font-awesome.css";
 @import '~ngx-toastr/toastr.css';
+
+html, body{
+  min-height: 100%;
+}
+
+body {
+  background: #46803b;
+  background: -webkit-linear-gradient(-135deg,#46803b,#2c3a7e);
+  background: -o-linear-gradient(-135deg,#46803b,#2c3a7e);
+  background: -moz-linear-gradient(-135deg,#46803b,#2c3a7e);
+  background: linear-gradient(-135deg,#46803b,#2c3a7e);
+}

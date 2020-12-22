@@ -11,8 +11,9 @@ import { LoginComponent } from './components/login/login.component';
   imports: [
     SharedModule,
     RouterModule.forChild([
-      { path: '', component: LoginComponent },
-      { path: 'home', component: HomeComponent, canActivate: [AuthGuard] }
+      { path: '', component: HomeComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'secret', component: LoginComponent, canActivate: [AuthGuard] }, //must be done
     ])
   ],
   declarations: [
