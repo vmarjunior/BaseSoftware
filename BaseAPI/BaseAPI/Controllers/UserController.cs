@@ -31,6 +31,14 @@ namespace BaseAPI.Controllers
         }
 
         [Authorize]
+        [HttpPost("Register")]
+        public IActionResult Register([FromBody]User user)
+        {
+            _userRepository.Add(user);
+            return Ok("Success");
+        }
+
+        [Authorize]
         [HttpGet("GetAll")]
         public IActionResult GetAll()
         {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppUser } from 'shared/models/AppUser';
+import { User } from 'shared/models/User';
 import { AuthService } from 'shared/services/auth.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { AuthService } from 'shared/services/auth.service';
 })
 export class BsNavbarComponent implements OnInit {
   isCollapsed = true;
-  appUser: AppUser;
+  appUser: User;
 
   constructor(private auth: AuthService) {
   }

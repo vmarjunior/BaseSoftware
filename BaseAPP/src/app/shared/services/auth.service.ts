@@ -1,3 +1,4 @@
+import { User } from './../models/User';
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
@@ -14,7 +15,7 @@ export class AuthService {
     LoginRequest: environment.API + "Users/Authenticate",
   };
 
-  private currentUserSubject: BehaviorSubject<any>;
+  private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<any>;
   private jwtHelper = new JwtHelperService();
 
@@ -45,7 +46,7 @@ export class AuthService {
           localStorage.setItem("token", user.token);
 
           this.toastr.success("Logado com sucesso!", "Sucesso!");
-          this.router.navigate(["home"]);
+          this.router.navigate(["/"]);
         },
         (err) => {
           this.toastr.error(err.error.message, "Erro!");

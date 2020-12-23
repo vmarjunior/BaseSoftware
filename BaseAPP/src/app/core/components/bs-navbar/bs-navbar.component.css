@@ -12,3 +12,15 @@
   color: black;
   font-weight: bold;
 }
+
+a {
+  font-family: Poppins-Regular;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #666;
+  margin: 0;
+}
+
+a:focus {
+  outline: none!important
+}

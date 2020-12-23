@@ -3,6 +3,26 @@
 @import "~font-awesome/css/font-awesome.css";
 @import '~ngx-toastr/toastr.css';
 
+@font-face {
+  font-family: Poppins-Regular;
+  src: url('/src/app/assets/fonts/poppins/Poppins-Regular.ttf')
+}
+
+@font-face {
+  font-family: Poppins-Bold;
+  src: url('/src/app/assets/fonts/poppins/Poppins-Bold.ttf')
+}
+
+@font-face {
+  font-family: Poppins-Medium;
+  src: url('/src/app/assets/fonts/poppins/Poppins-Medium.ttf')
+}
+
+@font-face {
+  font-family: Montserrat-Bold;
+  src: url('/src/app/assets/fonts/montserrat/Montserrat-Bold.ttf')
+}
+
 html, body{
   min-height: 100%;
 }
@@ -13,4 +33,8 @@ body {
   background: -o-linear-gradient(-135deg,#46803b,#2c3a7e);
   background: -moz-linear-gradient(-135deg,#46803b,#2c3a7e);
   background: linear-gradient(-135deg,#46803b,#2c3a7e);
+}
+
+body, html {
+  font-family: Poppins-Regular,sans-serif;
 }

@@ -25,30 +25,24 @@ namespace DAL
             builder.Entity<Example>().Property(c => c.PhoneNumber).IsUnicode(false).HasMaxLength(30);
             builder.Entity<Example>().Property(c => c.City).HasMaxLength(50);
             builder.Entity<Example>().Property(p => p.Payment).HasColumnType(priceDecimalType);
+
+            builder.Entity<User>().Property(c => c.Username).IsRequired().HasMaxLength(100);
+            builder.Entity<User>().Property(c => c.Password).IsRequired().HasMaxLength(100);
+            builder.Entity<User>().Property(c => c.FirstName).IsRequired().HasMaxLength(100);
+            builder.Entity<User>().Property(c => c.LastName).IsRequired().HasMaxLength(100);
         }
 
 
         public override int SaveChanges()
-        {
-            return base.SaveChanges();
-        }
-
+            => base.SaveChanges();
 
         public override int SaveChanges(bool acceptAllChangesOnSuccess)
-        {
-            return base.SaveChanges(acceptAllChangesOnSuccess);
-        }
-
+            => base.SaveChanges(acceptAllChangesOnSuccess);
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
-        {
-            return base.SaveChangesAsync(cancellationToken);
-        }
-
+            => base.SaveChangesAsync(cancellationToken);
 
         public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            return base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
-        }
+            => base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
     }
 }

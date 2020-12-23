@@ -1,22 +1,5 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box
-}
 
-.limiter a {
-  font-family: Poppins-Regular;
-  font-size: 14px;
-  line-height: 1.7;
-  color: #666;
-  margin: 0;
-}
-
-.limiter a:focus {
-  outline: none!important
-}
-
-.limiter a:hover {
+a:hover {
   text-decoration: none;
   color: #39752f;
   font-weight: 600;
@@ -109,7 +92,7 @@ button:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 177px 130px 33px 95px
+  padding: 70px 130px 50px 95px
 }
 
 .login100-pic {
@@ -206,7 +189,7 @@ button:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding-top: 20px
+  padding-top: 5px;
 }
 
 .login100-form-btn {
@@ -244,9 +227,19 @@ button:hover {
   background: rgb(15, 100, 27)
 }
 
+.cancel {
+  background: rgb(187, 65, 65)
+}
+
+.cancel:hover {
+  color: #fff;
+  background: rgb(160, 17, 17)
+}
+
+
 @media(max-width: 992px) {
   .wrap-login100 {
-      padding:177px 90px 33px 85px
+      padding:70px 90px 33px 85px
   }
 
   .login100-pic {
@@ -260,7 +253,7 @@ button:hover {
 
 @media(max-width: 768px) {
   .wrap-login100 {
-      padding:100px 80px 33px
+      padding:20px 80px 33px
   }
 
   .login100-pic {
@@ -274,6 +267,6 @@ button:hover {
 
 @media(max-width: 576px) {
   .wrap-login100 {
-      padding:100px 15px 33px
+      padding:10px 15px 33px
   }
 }
