@@ -24,3 +24,31 @@ a {
 a:focus {
   outline: none!important
 }
+
+.user-info-container {
+  padding: 15px;
+  color: white;
+  border-radius: 5px;
+  background: linear-gradient(-135deg,#242424,#5e2424);
+  position: absolute;
+  float: right;
+  top: 100px;
+  right: 2px;
+  width: 200px;
+  height: 300px;
+}
+
+.flex-column {
+  height: 230px;
+}
+
+.buttonUser {
+  background-color: transparent;
+  border: 0px;
+  cursor: pointer;
+}
+
+.logoutButton{
+  bottom: 0px;
+  float: right;
+}

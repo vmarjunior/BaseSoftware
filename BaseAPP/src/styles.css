@@ -23,7 +23,7 @@
   src: url('/src/app/assets/fonts/montserrat/Montserrat-Bold.ttf')
 }
 
-html, body{
+html, body {
   min-height: 100%;
 }
 
@@ -37,4 +37,8 @@ body {
 
 body, html {
   font-family: Poppins-Regular,sans-serif;
+}
+
+.toast-container {
+  margin-top: 100px;
 }

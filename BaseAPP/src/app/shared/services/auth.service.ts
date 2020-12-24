@@ -1,4 +1,4 @@
-import { User } from './../models/User';
+import { User } from 'shared/models/User';
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
@@ -16,7 +16,7 @@ export class AuthService {
   };
 
   private currentUserSubject: BehaviorSubject<User>;
-  public currentUser: Observable<any>;
+  public currentUser: Observable<User>;
   private jwtHelper = new JwtHelperService();
 
   constructor(
@@ -49,7 +49,8 @@ export class AuthService {
           this.router.navigate(["/"]);
         },
         (err) => {
-          this.toastr.error(err.error.message, "Erro!");
+          let message = err.error.message ? err.error.message : "It wasn't possible to establish connection to the server.";
+          this.toastr.error(message, "Erro!");
         }
       );
   }
@@ -71,6 +72,7 @@ export class AuthService {
     // remove user from local storage to log user out
     localStorage.removeItem("currentUser");
     this.currentUserSubject.next(null);
+    this.router.navigateByUrl("/login");
   }
 
 }

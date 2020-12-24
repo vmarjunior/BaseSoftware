@@ -27,10 +27,21 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/">Home</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!currentUser">
         <a class="nav-link" routerLink="/login">Login</a>
       </li>
-
+      <li class="nav-item" *ngIf="currentUser">
+        <a class="nav-link buttonUser" type="button" (click)="expandUserMenu()">{{ currentUser.firstName }}</a>
+      </li>
     </ul>
+
+    <div class="user-info-container" *ngIf="isUserMenuExpanded">
+      <h5>{{ currentUser.username }}</h5>
+
+      <div class="d-flex align-items-end flex-column">
+        <button class="btn btn-primary logoutButton mt-auto p-2" type="button" (click)="logout()">Logout</button>
+      </div>
+    </div>
+
   </div>
 </nav>
