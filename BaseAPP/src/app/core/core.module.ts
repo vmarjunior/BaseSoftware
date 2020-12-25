@@ -7,6 +7,7 @@ import { BsNavbarComponent } from './components/bs-navbar/bs-navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { ProfileCardComponent } from './components/profile-card/profile-card.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { RegisterComponent } from './components/register/register.component';
     BsNavbarComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProfileCardComponent
   ],
   exports: [
     BsNavbarComponent,

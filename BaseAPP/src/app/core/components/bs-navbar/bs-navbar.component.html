@@ -23,7 +23,6 @@
     [ngbCollapse]="isCollapsed"
   >
     <ul class="navbar-nav ml-auto">
-
       <li class="nav-item">
         <a class="nav-link" routerLink="/">Home</a>
       </li>
@@ -31,17 +30,20 @@
         <a class="nav-link" routerLink="/login">Login</a>
       </li>
       <li class="nav-item" *ngIf="currentUser">
-        <a class="nav-link buttonUser" type="button" (click)="expandUserMenu()">{{ currentUser.firstName }}</a>
+        <a
+          class="nav-link buttonUser"
+          type="button"
+          style="cursor: pointer;"
+          (click)="expandUserMenu()"
+          >{{ currentUser.firstName }}</a
+        >
       </li>
     </ul>
-
-    <div class="user-info-container" *ngIf="isUserMenuExpanded">
-      <h5>{{ currentUser.username }}</h5>
-
-      <div class="d-flex align-items-end flex-column">
-        <button class="btn btn-primary logoutButton mt-auto p-2" type="button" (click)="logout()">Logout</button>
-      </div>
-    </div>
-
   </div>
 </nav>
+
+<app-profile-card
+  class="user-info-container"
+  [currentUser]="currentUser"
+  *ngIf="isUserMenuExpanded"
+></app-profile-card>

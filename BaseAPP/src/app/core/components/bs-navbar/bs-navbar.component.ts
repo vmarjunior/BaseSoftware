@@ -17,15 +17,15 @@ export class BsNavbarComponent implements OnInit {
   }
 
   async ngOnInit() {
-    this.auth.currentUser.subscribe(user => this.currentUser = user);
+    this.auth.currentUser.subscribe(user => {
+      this.currentUser = user;
+
+      if (!user)
+        this.isUserMenuExpanded = false;
+    });
   }
 
   expandUserMenu(){
     this.isUserMenuExpanded = !this.isUserMenuExpanded;
-  }
-
-  logout() {
-    this.auth.logout();
-    this.isUserMenuExpanded = false;
   }
 }
