@@ -8,11 +8,13 @@ import { AuthGuard } from 'shared/services/util/auth-guard.service';
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 import { Interceptor } from './services/util/auth.interceptor';
+import { CustomFormsModule } from 'ngx-custom-validators';
 
 @NgModule({
   imports: [
     CommonModule,
     NgbModule,
+    CustomFormsModule,
     FormsModule,
     HttpClientModule,
     Interceptor
@@ -21,6 +23,7 @@ import { Interceptor } from './services/util/auth.interceptor';
   exports: [
     NgbModule,
     FormsModule,
+    CustomFormsModule,
     CommonModule
   ],
   providers: [

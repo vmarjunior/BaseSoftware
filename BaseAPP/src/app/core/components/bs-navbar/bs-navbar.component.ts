@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { User } from 'shared/models/User';
 import { AuthService } from 'shared/services/auth.service';
 
@@ -12,8 +13,10 @@ export class BsNavbarComponent implements OnInit {
   isUserMenuExpanded = false;
   currentUser: User;
 
-  constructor(private auth: AuthService) {
-  }
+  constructor(
+    private auth: AuthService,
+    private toastrService: ToastrService
+    ) { }
 
   async ngOnInit() {
     this.auth.currentUser.subscribe(user => {
@@ -25,6 +28,7 @@ export class BsNavbarComponent implements OnInit {
   }
 
   expandUserMenu(){
+    this.toastrService.clear();
     this.isUserMenuExpanded = !this.isUserMenuExpanded;
   }
 }

@@ -1,0 +1,46 @@
+<div class="limiter">
+  <div class="container-login100">
+    <div class="wrap-login100">
+      <div class="login100-pic">
+        <img src="src/app/assets/account-recover.png" alt="IMG" />
+      </div>
+
+
+      <form #f="ngForm" class="login100-form" (ngSubmit)="send()">
+        <span class="login100-form-title"> Recover account </span>
+
+        <div class="wrap-input100">
+          <input
+            class="input100"
+            type="email"
+            name="email"
+            placeholder="E-mail"
+            [(ngModel)]="model.email"
+            #email="ngModel"
+            ngvemail
+            required
+          />
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+            <i class="fa fa-user" aria-hidden="true"></i>
+          </span>
+        </div>
+        <div class="pl-2 mb-3" style="color: red;" *ngIf="email.touched && email.invalid && email.errors.email">
+          Enter a valid e-mail.
+        </div>
+
+        <br />
+
+        <div class="container-login100-form-btn">
+          <button class="login100-form-btn" type="submit" [disabled]="!f.valid">Submit</button>
+        </div>
+
+        <div class="container-login100-form-btn">
+          <a class="login100-form-btn cancel" routerLink="/login">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
