@@ -22,28 +22,34 @@
     id="navbarDefault"
     [ngbCollapse]="isCollapsed"
   >
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" routerLink="/">Home</a>
       </li>
-      <li class="nav-item" *ngIf="!currentUser">
-        <a class="nav-link" routerLink="/login">Login</a>
-      </li>
-      <li class="nav-item" *ngIf="currentUser">
-        <a
-          class="nav-link buttonUser"
-          type="button"
-          style="cursor: pointer;"
-          (click)="expandUserMenu()"
-          >{{ currentUser.firstName }}</a
-        >
-      </li>
     </ul>
   </div>
-</nav>
 
-<app-profile-card
-  class="user-info-container"
-  [currentUser]="currentUser"
-  *ngIf="isUserMenuExpanded"
-></app-profile-card>
+  <div class="user-menu ml-auto">
+    <div *ngIf="!currentUser">
+      <a class="nav-link" routerLink="/login">Login</a>
+    </div>
+
+    <div *ngIf="currentUser">
+      <a
+        class="nav-link buttonUser"
+        type="button"
+        style="cursor: pointer"
+        (click)="expandUserMenu()"
+      >
+        {{ currentUser.firstName }}
+        <img src="/src/app/assets/picture-unknown.jpg" class="thumbnail" />
+      </a>
+    </div>
+  </div>
+
+  <app-profile-card
+    class="user-info-container"
+    [currentUser]="currentUser"
+    *ngIf="isUserMenuExpanded"
+  ></app-profile-card>
+</nav>

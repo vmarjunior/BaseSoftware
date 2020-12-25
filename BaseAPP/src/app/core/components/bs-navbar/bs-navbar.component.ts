@@ -1,4 +1,3 @@
-import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'shared/models/User';
 import { AuthService } from 'shared/services/auth.service';
@@ -10,7 +9,7 @@ import { AuthService } from 'shared/services/auth.service';
 })
 export class BsNavbarComponent implements OnInit {
   isCollapsed = true;
-  isUserMenuExpanded = true;
+  isUserMenuExpanded = false;
   currentUser: User;
 
   constructor(private auth: AuthService) {

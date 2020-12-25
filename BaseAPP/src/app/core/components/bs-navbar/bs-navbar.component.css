@@ -3,21 +3,21 @@
   left: auto !important;
 }
 
-.badge-pill {
-  border-radius: 1000;
-  padding-right: 0.4em;
-  padding-left: 0.4em;
-  margin-left: -2px;
-  margin-right: 9px;
-  color: black;
-  font-weight: bold;
+.navbar-brand {
+  padding-right: 20px;
+  border-right: 1px solid rgba(0, 0, 0, 0.199);
+  margin-right: 10px;
 }
 
-a {
+.navbar-nav{
+  margin-left: 15px;
+}
+
+a, .user-menu {
   font-family: Poppins-Regular;
   font-size: 18px;
   line-height: 1.7;
-  color: #666;
+  color: rgba(255, 255, 255, 0.5);
   margin: 0;
 }
 
@@ -30,4 +30,15 @@ a:focus {
   float: right;
   top: 100px;
   right: 5px;
+}
+
+.thumbnail {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  float: right;
+  margin-top: -5px;
+  margin-left: 10px;
+  border-radius: 100%;
+  box-shadow: 0 13px 26px rgba(218, 218, 218, 0.2), 0 3px 6px rgba(0, 0, 0, 0.2);
 }
