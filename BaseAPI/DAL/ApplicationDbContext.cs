@@ -26,7 +26,8 @@ namespace DAL
             builder.Entity<Example>().Property(c => c.City).HasMaxLength(50);
             builder.Entity<Example>().Property(p => p.Payment).HasColumnType(priceDecimalType);
 
-            builder.Entity<User>().Property(c => c.Username).IsRequired().HasMaxLength(100);
+            builder.Entity<User>().Property(c => c.Email).IsRequired().HasMaxLength(100);
+            builder.Entity<User>().Property(c => c.Username).IsRequired().HasMaxLength(50);
             builder.Entity<User>().Property(c => c.Password).IsRequired().HasMaxLength(100);
             builder.Entity<User>().Property(c => c.FirstName).IsRequired().HasMaxLength(100);
             builder.Entity<User>().Property(c => c.LastName).IsRequired().HasMaxLength(100);

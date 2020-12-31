@@ -3,6 +3,7 @@ using DAL.Models;
 using DAL.Repositories.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using System.Collections.Generic;
 
 namespace BaseAPI.Controllers
 {
@@ -30,12 +31,33 @@ namespace BaseAPI.Controllers
             return Ok(response);
         }
 
-        [Authorize]
         [HttpPost("Register")]
         public IActionResult Register([FromBody]User user)
         {
             _userRepository.Add(user);
             return Ok("Success");
+        }
+
+        [HttpGet("RecoverAccount")]
+        public IActionResult RecoverAccount([FromBody]string email)
+        {
+            var user = _userRepository.RecoverAccountByEmail(email);
+
+            if (user != null)
+            {
+                //Smtp find user
+                SMTPMailHelper mail = new SMTPMailHelper();
+                mail.SendMail(
+                    new List<string>() { user.Email },
+                    "Account Recover", 
+                    "You are receiving this e-mail because you requested a new password. Your new password is as follows: " + user.Password + ".", 
+                    null, 
+                    null);
+
+                return Ok("Your new login information was sent to your e-mail.");
+            }
+            else
+                return StatusCode(500, "User not found.");
         }
 
         [Authorize]
@@ -45,5 +67,6 @@ namespace BaseAPI.Controllers
             var users = _userRepository.GetAll();
             return Ok(users);
         }
+
     }
 }

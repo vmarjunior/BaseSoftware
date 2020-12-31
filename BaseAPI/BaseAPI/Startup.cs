@@ -56,6 +56,14 @@ namespace BaseAPI
                 app.UseHsts(); // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
             }
 
+            /* Auto migrate the database on startup
+             * You must enable migrations first with add-migration command on DAL Package Manager
+            using (var migrationSvcScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                migrationSvcScope.ServiceProvider.GetService<ApplicationDbContext>().Database.Migrate();
+            }
+            */
+
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();
@@ -67,7 +75,7 @@ namespace BaseAPI
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.DocumentTitle = "Swagger UI - QuickApp";
+                c.DocumentTitle = "Swagger UI - BaseApp";
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", $"{ServerConfig.ApiFriendlyName} V1");
                 c.OAuthClientId(ServerConfig.SwaggerClientID);
                 c.OAuthClientSecret("no_password"); //Leaving it blank doesn't work

@@ -20,7 +20,14 @@ namespace DAL.Repositories
         //TEST LIST
         private List<User> _users = new List<User>
         {
-            new User { Id = 1, FirstName = "Test", LastName = "User", Username = "test", Password = "test" }
+            new User { 
+                Id = 1, 
+                FirstName = "Test", 
+                LastName = "User", 
+                Username = "test", 
+                Password = "test", 
+                Email = "test@test.com" 
+            }
         };
 
         public AuthenticateResponse Authenticate(AuthenticateRequest model, string secret)
@@ -31,7 +38,7 @@ namespace DAL.Repositories
             if (user == null) return null;
 
             // authentication successful so generate jwt token
-            var token = generateJwtToken(user, secret);
+            var token = GenerateJwtToken(user, secret);
 
             return new AuthenticateResponse(user, token);
         }
@@ -42,7 +49,7 @@ namespace DAL.Repositories
             return _users.SingleOrDefault(x => x.Id == id);
         }
 
-        private string generateJwtToken(User user, string secret)
+        private string GenerateJwtToken(User user, string secret)
         {
             // generate token that is valid for 7 days
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -55,6 +62,26 @@ namespace DAL.Repositories
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
+        }
+
+        public User RecoverAccountByEmail(string email)
+        {
+            email = email.ToLower().Trim();
+            var user = _users.FirstOrDefault(x => x.Email == email);
+
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var stringChars = new char[8];
+            var random = new Random();
+
+            for (int i = 0; i < stringChars.Length; i++)
+                stringChars[i] = chars[random.Next(chars.Length)];
+            
+            var finalString = new String(stringChars);
+
+            user.Password = finalString;
+            Update(user);
+            
+            return user;
         }
     }
 }
